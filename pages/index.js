@@ -3,13 +3,11 @@ import { HeroBanner, Product, FooterBanner } from '../components/index';
 import { client } from '../lib/client';
 
 const Home = ({products, bannerData}) => {
-
-  console.log('Hiiii');
   console.log(products);
   console.log(bannerData);
   return (
     <>
-      <HeroBanner />
+      <HeroBanner bannerData={bannerData.length && bannerData[0]} />
       <div className='products-heading'>
         <h2>Best Selling Products</h2>
         <p>Speakers of many variations</p>
@@ -39,4 +37,5 @@ export const getServerSideProps = async ({ req, res }) => {
     props:{ products, bannerData }
   }
 };
+
 export default Home;
