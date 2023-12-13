@@ -31,4 +31,4 @@ const HeroBanner = ({ bannerData }) => {
   )
 }
 
-export default HeroBanner
+export default HeroBanner;
