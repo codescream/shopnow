@@ -7,8 +7,8 @@ const Product = ({ product: {image, name, slug, price} }) => {
     <div>
       <Link href={`product/${slug.current}`}>
         <div className='product-card'>
-          <img src={urlFor(image && image[0])} alt="product" className='w-[250px] product-image rounded-xl' />
-          <p className='product-name'>
+          <img src={urlFor(image && image[0])} alt="product" className='w-[150px] h-[150px] md:w-[250px] md:h-[250px] product-image rounded-xl' />
+          <p className='product-name break-words'>
             {name}
           </p>
           <p className='product-price'>${price}</p>
@@ -18,4 +18,4 @@ const Product = ({ product: {image, name, slug, price} }) => {
   )
 }
 
-export default Product
+export default Product;
