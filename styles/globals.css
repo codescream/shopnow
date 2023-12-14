@@ -69,9 +69,11 @@ width: 100%;
     margin-left: 6px;
 }
 .logo{
-  color: gray;
+  background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+  background-clip: text;
+  color: transparent;
   font-size: 18px;
-
+  font-weight: 500;
 }
 .cart-icon{
   font-size: 25px;
@@ -87,12 +89,12 @@ width: 100%;
 }
 .cart-item-qty{
   position: absolute;
-  right: -8px;
-  font-size: 12px;
+  top: 0px;
+  right: -5px;
+  font-size: 10px;
   color: #eee;
-  background-color: #f02d34;
-  width: 18px;
-  height: 18px;
+  background-color: #d5252b;
+  padding: 0.01px 6px 0.4px 6px;
   border-radius: 50%;
   text-align: center;
   font-weight: 600;
@@ -135,7 +137,7 @@ width: 100%;
 .hero-banner-container{
   padding: 100px 40px;
   background-color: #dcdcdc;
-  /* border-radius: 15px; */
+  border-radius: 15px;
   position: relative;
   height: 500px;
   line-height: 0.9; 
@@ -215,7 +217,7 @@ width: 100%;
 .footer-banner-container{
   padding: 20px 40px;
   background-color: #f02d34;
-  /* border-radius: 15px; */
+  border-radius: 15px;
   position: relative;
   height: 400px;
   line-height: 1; 
