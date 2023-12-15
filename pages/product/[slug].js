@@ -46,7 +46,7 @@ const ProductDetails = ({ product, product: {image, name, details, price}, produ
             </div>
             <div className='quantity'>
               <h4>Quantity:</h4>
-              <p className='quantity-desc'>
+              <p className='quantity-desc rounded-sm'>
                 <span className='minus'
                   onClick={() => {}}
                 ><AiOutlineMinus /></span>
