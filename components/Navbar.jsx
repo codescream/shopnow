@@ -15,10 +15,13 @@ const Navbar = () => {
         onClick={() => {}}
       >
         <AiOutlineShopping />
-        <span className='cart-item-qty'>1</span>
+        <div className='cart-item-qty'>
+          <span>4</span>
+        </div>
+        
       </button>
     </div>
   )
 }
 
-export default Navbar
+export default Navbar;

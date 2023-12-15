@@ -3,8 +3,6 @@ import { HeroBanner, Product, FooterBanner } from '../components/index';
 import { client } from '../lib/client';
 
 const Home = ({products, bannerData}) => {
-  console.log(products);
-  console.log(bannerData);
   return (
     <>
       <HeroBanner bannerData={bannerData.length && bannerData[0]} />
