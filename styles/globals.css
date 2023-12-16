@@ -457,8 +457,8 @@ padding: 30px 65px;
   /* flex-direction: row; */
   border-radius: 15px;
   background-color: #ebebeb;
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
   justify-content: center;
   cursor: pointer;
   transition: .3s ease-in-out;
@@ -504,7 +504,7 @@ padding: 30px 65px;
 }
 
 .product-detail-desc {
-  /* width: 350px; */
+  max-width: 500px;
   min-width: 200px;
   /* background-color: green; */
 }
