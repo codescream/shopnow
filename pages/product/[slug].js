@@ -1,11 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 import { Product } from '../../components';
 import { client, urlFor } from '../../lib/client';
 import React, { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { useContextState } from '../../context/StateContext';
 
 const ProductDetails = ({ product, product: {image, name, details, price}, products}) => {
   const [index, setIndex] = useState(0)
-  console.log(products);
+  const { showCart, cartItems, totalPrice, totalQuantities, qty, incQty, decQty, addToCart } = useContextState();
+
   return (
     <div>
       <div
@@ -48,16 +51,16 @@ const ProductDetails = ({ product, product: {image, name, details, price}, produ
               <h4>Quantity:</h4>
               <p className='quantity-desc rounded-sm'>
                 <span className='minus'
-                  onClick={() => {}}
+                  onClick={decQty}
                 ><AiOutlineMinus /></span>
-                <span className='num'onClick={() => {}}>1</span>
-                <span className='plus' onClick={() => {}} ><AiOutlinePlus /></span>
+                <span className='num'>{qty}</span>
+                <span className='plus' onClick={incQty} ><AiOutlinePlus /></span>
               </p>
             </div>
             <div className='buttons'>
               <button type='button'
                 className='add-to-cart rounded-lg'
-                onClick={() => {}}
+                onClick={() => addToCart(product, qty)}
               >
                 Add to Cart
               </button>
