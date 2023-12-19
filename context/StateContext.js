@@ -59,7 +59,6 @@ const StateContext = ({ children }) => {
   }
 
   const removeFromCart = (product, qty = null) => {
-
     if(qty) {
       const updatedCart = cartItems.map((cartItem) => {
         if(cartItem._id === product._id && cartItem.quantity > 1) {

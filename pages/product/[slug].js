@@ -84,6 +84,10 @@ const ProductDetails = ({ product, product: {image, name, details, price}, produ
                 products.map((product) => <Product key={product._id} product={product} />
                 )
               }
+              {
+                products.slice(0, 8).map((product) => <Product key={product._id} product={product} />
+                )
+              }
             </div>
           </div>
       </div>
