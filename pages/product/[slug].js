@@ -4,10 +4,16 @@ import { client, urlFor } from '../../lib/client';
 import React, { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { useContextState } from '../../context/StateContext';
+import handleCheckout from '../../lib/handleCheckout';
 
 const ProductDetails = ({ product, product: {image, name, details, price}, products}) => {
   const [index, setIndex] = useState(0)
-  const { showCart, cartItems, totalPrice, totalQuantities, qty, incQty, decQty, addToCart } = useContextState();
+  const { showCart, cartItems, totalPrice, totalQuantities, qty, incQty, decQty, addToCart, setShowCart } = useContextState();
+
+  const buyNow = () => {
+    addToCart(product, 1);
+    setShowCart(true);
+  }
 
   return (
     <div>
@@ -67,7 +73,7 @@ const ProductDetails = ({ product, product: {image, name, details, price}, produ
               <button
                 type='button'
                 className='buy-now rounded-lg'
-                onClick={() => {}}
+                onClick={buyNow}
               >Buy Now</button>
             </div>
           </div>

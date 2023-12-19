@@ -95,7 +95,10 @@ const StateContext = ({ children }) => {
       decQty,
       addToCart,
       setShowCart,
-      removeFromCart
+      removeFromCart,
+      setCartItems,
+      setTotalPrice,
+      setTotalQuantities
     }}>
       {children}
     </ContextState.Provider>
