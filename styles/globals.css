@@ -166,6 +166,7 @@ a {
 }
 .hero-banner-container .beats-solo{
   font-size: 20px;
+  margin-left: -20px;
 }
 .hero-banner-container button{
   border-radius: 15px;
@@ -184,7 +185,7 @@ a {
 .hero-banner-container h3{
   font-size: 4rem;
   margin-top: 4px;
-  /* margin-left: -20px; */
+  margin-left: -20px;
 }
 .hero-banner-container h1{
   color: white;
@@ -248,6 +249,7 @@ a {
   margin-top: 120px;
   align-items: center;
 }
+
 .banner-desc{
   display: flex ;
   flex-direction: row;
@@ -327,7 +329,6 @@ a {
   align-items: center;
   gap: 10px;
   justify-content: center;
-
 }
 .footer-container .icons{
   font-size: 30px;
@@ -751,6 +752,7 @@ a {
   .banner-desc{
     /* flex-wrap: wrap; */
     flex-direction: column;
+
     gap: 20px;
   }
   /* .hero-banner-container{
@@ -893,5 +895,14 @@ a {
   }
   .small-images-container{
     flex-direction: column;
+  }
+
+  .banner-desc {
+    width: fit-content;
+  }
+
+  .footer-banner-container {
+    display: flex;
+    justify-content: center;
   }
 }
