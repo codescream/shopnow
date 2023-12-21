@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useRef, useEffect } from 'react';
+import React, { useRef} from 'react';
 import { useContextState } from '../context/StateContext';
 import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineRight, AiOutlineShopping } from 'react-icons/ai';
@@ -12,8 +12,7 @@ import handleCheckout from '../lib/handleCheckout';
 
 
 const Cart = () => {
-  const { showCart, setShowCart, cartItems, totalPrice, totalQuantities, addToCart, removeFromCart } = useContextState();
-  
+  const { showCart, setShowCart, cartItems, totalPrice, totalQuantities, decQty, incQty, qty, addToCart, removeFromCart  } = useContextState();
 
   const cartRef = useRef();
 
