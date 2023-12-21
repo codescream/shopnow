@@ -10,6 +10,12 @@ const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
 
+  useEffect(() => {
+    setCartItems(JSON.parse(localStorage.getItem('cartItems')) || []);
+    setTotalPrice(Number(localStorage.getItem('totalPrice')) || 0);
+    setTotalQuantities(Number(localStorage.getItem('totalQuantities')) || 0);
+  }, []);
+
   console.log(totalPrice);
 
   const incQty = () => {
@@ -28,12 +34,16 @@ const StateContext = ({ children }) => {
 
   const addToCart = (product, qty) => {
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + qty);
+    localStorage.setItem('totalQuantities', `${totalQuantities + qty}`);
+
     setTotalPrice((prevTotalPrice) => {return (Number(prevTotalPrice) + Number(qty) * Number(product.price)).toFixed(2)});
+    localStorage.setItem('totalPrice', `${(Number(totalPrice) + Number(qty) * Number(product.price)).toFixed(2)}`);
+
     const alreadyAdded = cartItems.find((item) => item._id === product._id);
+    let updatedCart = [];
 
     if (alreadyAdded) {
-      console.log('already added');
-      const updatedCart = cartItems.map((cartItem) => {
+      updatedCart = cartItems.map((cartItem) => {
         if(cartItem._id === product._id) {
           return {
             ...cartItem,
@@ -43,18 +53,18 @@ const StateContext = ({ children }) => {
           return {...cartItem}
         }
       });
-      setCartItems(([...updatedCart]));
     }else {
-      console.log('adding new');
-      const updatedCart = [
+      updatedCart = [
         ...cartItems,
         {...product,
           quantity: qty
         }
-      ] 
-      setCartItems(([...updatedCart]));
+      ]
     }
+
     setQty(1);
+    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    setCartItems(([...updatedCart]));
     toast.success(`${qty} ${product.name} added to cart!`);
   }
 
@@ -63,7 +73,11 @@ const StateContext = ({ children }) => {
       const updatedCart = cartItems.map((cartItem) => {
         if(cartItem._id === product._id && cartItem.quantity > 1) {
           setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - qty);
+          localStorage.setItem('totalQuantities', `${totalQuantities - qty}`);
+
           setTotalPrice((prevTotalPrice) => {return (Number(prevTotalPrice) - Number(qty) * Number(product.price)).toFixed(2)});
+          localStorage.setItem('totalPrice', `${(Number(totalPrice) - Number(qty) * Number(product.price)).toFixed(2)}`);
+          
           toast.success(`${qty} ${product.name} removed from cart!`);
            return {
             ...cartItem,
@@ -73,12 +87,21 @@ const StateContext = ({ children }) => {
           return {...cartItem}
         }
       });
+
+      localStorage.setItem('cartItems', JSON.stringify(updatedCart));
       setCartItems(([...updatedCart]));
     }else {
       setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - product.quantity);
+      localStorage.setItem('totalQuantities', `${totalQuantities - product.quantity}`);
+
       setTotalPrice((prevTotalPrice) => {return (Number(prevTotalPrice) - Number(product.quantity) * Number(product.price)).toFixed(2)});
+      localStorage.setItem('totalPrice', `${(Number(totalPrice) - Number(product.price) * Number(product.price)).toFixed(2)}`);
+      
+
       toast.success(`${product.name} removed from cart!`);
       const filteredCart = cartItems.filter((cartItem) => cartItem._id !== product._id);
+
+      localStorage.setItem('cartItems', JSON.stringify(filteredCart));
       setCartItems([...filteredCart]);
     }
   }
