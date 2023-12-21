@@ -1,11 +1,14 @@
 import React from 'react';
-import { AiFillInstagram, AiOutlineCopyright, AiOutlineTwitter } from 'react-icons/ai';
+import { AiFillGithub, AiFillInstagram, AiOutlineCopyright, AiOutlineTwitter } from 'react-icons/ai';
 
 const Footer = () => {
   return (
     <div className='footer-container'>
-      <p className='flex justify-center items-center'><AiOutlineCopyright className='inline text-sm mt-0.5 mr-1'/>2023 ShopNow Products. All Rights Reserved.</p>
+      <p><AiOutlineCopyright className='inline   mb-[3px] mr-1'/>2023 ShopNow Products. All Rights Reserved.</p>
       <p className='icons'>
+        <a href="https://github.com/codescream?tab=repositories" target="_blank" rel="noopener noreferrer">
+          <AiFillGithub />
+        </a>
         <AiFillInstagram />
         <AiOutlineTwitter />
       </p>
