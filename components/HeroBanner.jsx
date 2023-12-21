@@ -10,7 +10,7 @@ const HeroBanner = ({ bannerData }) => {
           { bannerData.smallText }
         </p>
         <h3>{ bannerData.midText }</h3>
-        <h1 className='text-[3.5rem] md:text-[6rem] lg:text-[8rem]'>{ bannerData.largeText1 }</h1>
+        <h1 className='text-[4rem] md:text-[6rem] lg:text-[8rem]'>{ bannerData.largeText1 }</h1>
         <img src={urlFor(bannerData.image)} alt="headphone" className='hero-banner-image right-[0%] md:right-[20%]' />
         <div>
           <Link href={`/product/${bannerData.product}`}>
