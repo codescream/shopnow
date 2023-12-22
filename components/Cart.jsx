@@ -12,7 +12,7 @@ import handleCheckout from '../lib/handleCheckout';
 
 
 const Cart = () => {
-  const { showCart, setShowCart, cartItems, totalPrice, totalQuantities, decQty, incQty, qty, addToCart, removeFromCart  } = useContextState();
+  const { showCart, setShowCart, cartItems, totalPrice, totalQuantities, addToCart, removeFromCart  } = useContextState();
 
   const cartRef = useRef();
 
